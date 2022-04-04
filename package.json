@@ -1,0 +1,21 @@
+{
+  "name": "expensetrackerapp",
+  "version": "1.0.0",
+  "description": "Expense App, build with js, scss and localStorage",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "scss"
+  ],
+  "author": "Edgar Castaneda",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.49.9"
+  }
+}

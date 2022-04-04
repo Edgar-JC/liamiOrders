@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+.nav-bar-bg{
+    background-color: v.$purpleDark;
+}
+.nav-bar{
+    height: 100vh;
+    &__list{
+        a {
+            color: v.$white;
+        }
+    }
+}

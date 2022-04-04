@@ -1,0 +1,27 @@
+@use 'base/variables' as v;
+
+.header-bg{
+    background-color: v.$purpleDark;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(v.$spacing / 2);
+    &
+    &__logo{
+        flex: 0 0 25rem;
+    }
+    &__hamburger-btn{
+        cursor: pointer;
+        .line{
+            display: block;
+            background-color: v.$white;
+            height: .5rem;
+            width: 3.5rem;
+            margin-bottom: .6rem;
+            border-radius: v.$borderRadius;            
+        }
+    }
+}
