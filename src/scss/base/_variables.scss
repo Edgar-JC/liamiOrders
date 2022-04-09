@@ -5,6 +5,7 @@ $mainFont: 'Poppins', sans-serif;
 
 //colors
 $purpleDark: #2E005A;
+$magenta: #F512F1;
 $lavenderPurple: #947DAD;
 $lavenderLight: #E0BBE4;
 $white: #FFFFFF;
@@ -29,3 +30,6 @@ $lightWeightFont: 300;
 $regularWeightFont: 400;
 $boldWeightFont: 700;
 $blackWeightFont: 900;
+
+//transition
+$transition: .3s ease-in-out

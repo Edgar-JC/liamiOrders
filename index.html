@@ -15,31 +15,53 @@
             <div class="header__logo">
                 <img src="/src/img/logoWebLiami.png" alt="Logo Liami">
             </div>
-            <div class="header__hamburger-btn">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
+            <div id="hamburgerBtn" class="header__hamburger-btn">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
             </div>
         </div>
     </header>
-    <aside class="nav-bar-bg">
-        <nav class="nav-bar container">
-            <ul class="nav-bar__list">    
-                <li><a href="#"><i class="fas fa-home"></i>Inicio</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i>Pedidos</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>Clientes</a></li>
-                <li><a href="#"><i class="fas fa-list"></i>Productos</a></li>
-                <li><a href="#"><i class="fas fa-receipt"></i>Egresos</a></li>
-            </ul>
-        </nav>
-        <div class="user-info">
-            <a href="#"><i class="fas fa-user-circle"></i>Ashley Marin</a>
-            <a href="#"><i class="fas fa-sign-out-alt"></i>Salir</a>
-        </div>
-    </aside>
-    <main class="calendar container section">
-        <h1 class="calendar__title">Calendario de Entregas</h1>
-    </main>
-    <script src="/script.js"></script>
+    <div class="page-content">
+        <aside id="navigationBar" class="nav-bar-bg">
+            <nav class="nav-bar container">
+                <ul class="nav-bar__list">    
+                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-home"></i>Inicio</a></li>
+                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-shopping-cart"></i>Pedidos</a></li>
+                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-user"></i>Clientes</a></li>
+                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-list"></i>Productos</a></li>
+                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-receipt"></i>Egresos</a></li>
+                </ul>
+            </nav>
+            <div class="user-info container">
+                <a class="user-info__name" href="#"><i class="fas fa-user-circle"></i>Ashley Marin</a>
+                <a class="user-info__logout" href="#"><i class="fas fa-sign-out-alt"></i>Salir</a>
+            </div>
+        </aside>
+        <main class="calendar-container container section">
+            <h1 class="heading-calendar">Calendario de Entregas</h1>
+            <div class="calendar">
+                <div class="calendar__actual-date">
+                    <div class="month-calendar">Abril 2022</div>
+                    <div class="actual-date">Miercoles 6, Abril, 2022</div>
+                    <i class="fa-solid fa-chevron-left prev-btn"></i>
+                    <i class="fa-solid fa-chevron-right next-btn"></i>
+                </div>
+                <div class="calendar__main">
+                    <div class="days-week">
+                        <p>Lun</p>
+                        <p>Mar</p>
+                        <p>Mie</p>
+                        <p>Jue</p>
+                        <p>Vie</p>
+                        <p>Sab</p>
+                        <p>Dom</p>
+                    </div>
+                    <div class="days-month"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="src/js/script.js"></script>
 </body>
 </html>

@@ -1,12 +1,48 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
+
 .nav-bar-bg{
+    position: absolute;
     background-color: v.$purpleDark;
+    height: 85vh;
+    width: 100%;
+    right: -100%;
+    transition: v.$transition;
+    @include m.tabletMQ {
+        left: 0;
+        width: 20vw;
+        height: calc(100vh - 104.22px);
+        background-color: v.$grayDark;
+        position: static;
+    }
+
+    &.active{
+        right: 0;
+        overflow: hidden;
+    }
 }
 .nav-bar{
-    height: 100vh;
+    padding-top: 3rem;
     &__list{
-        a {
-            color: v.$white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__item {
+        height: 14vh;
+    }
+    &__text {
+        color: v.$white;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        transition: v.$transition;
+        &:hover{
+            color: v.$magenta;
+        }
+        i{
+            font-size: 2.5rem;
         }
     }
 }

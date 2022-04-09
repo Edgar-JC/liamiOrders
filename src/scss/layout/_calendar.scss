@@ -1,10 +1,64 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
-.calendar {
-    &__title{
-        padding-bottom: .5rem;
-        border-bottom: 2px solid;
+.calendar-container {
+    .heading-calendar{
         font-weight: v.$boldWeightFont;
         text-align: center;
+        
+    }
+}
+
+.calendar{
+    &__actual-date{
+        color: v.$white;
+        padding: 2rem;
+        background-color: v.$lavenderPurple;
+        text-align: center;
+        position: relative;
+        .month-calendar{
+            font-size: 2.5rem;
+            padding-bottom: 1rem;
+        }
+        .prev-btn{
+            position: absolute;
+            top: calc(50% - 1.25rem);
+            left: 2rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+        .next-btn{
+            position: absolute;
+            top: calc(50% - 1.25rem);
+            right: 2rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+    }
+    &__main{
+        color: v.$white;
+        padding: 2rem;
+        background-color: v.$lavenderLight;
+        .days-week{
+            @include m.grid(7, 0);
+            text-align: center;
+        }
+        .days-month {
+            margin-top: 1rem;
+            @include m.grid(7, 0);
+            .day{
+                display: flex;
+                height: 5rem;
+                align-items: center;
+                justify-content: center;
+                &:hover{
+                    cursor: pointer;
+                    border: 2px solid v.$lavenderPurple;
+                }
+            }
+        }
+    }
+    p {
+        margin: 0;
     }
 }

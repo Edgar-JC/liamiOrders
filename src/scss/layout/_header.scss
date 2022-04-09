@@ -1,4 +1,5 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .header-bg{
     background-color: v.$purpleDark;
@@ -8,20 +9,37 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: calc(v.$spacing / 2);
+    padding: 1rem;
     &
     &__logo{
         flex: 0 0 25rem;
+        @include m.tabletMQ {
+            margin: 0 auto;
+        }
     }
     &__hamburger-btn{
         cursor: pointer;
+        @include m.tabletMQ{
+             display: none;
+        }
         .line{
             display: block;
             background-color: v.$white;
             height: .5rem;
             width: 3.5rem;
             margin-bottom: .6rem;
-            border-radius: v.$borderRadius;            
+            border-radius: v.$borderRadius;
+            transition: v.$transition;  
         }
     }
+}
+
+.line1.active{
+    transform: rotate(45deg) translate(7.5px, 7.5px);
+}
+.line2.active{
+    opacity: 0;
+}
+.line3.active{
+    transform: rotate(-45deg) translate(7.5px, -7.5px);
 }
