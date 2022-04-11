@@ -33,7 +33,15 @@ a {
     text-decoration: none;
 }
 
+p {
+    margin: 0;
+}
 
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
 
 h1 {
     font-size: 3.6rem;
@@ -45,7 +53,33 @@ h3 {
  font-size: 3rem;
 }
 
+[data-title]:hover:after{
+    opacity: .8;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
 
+[data-title]:after{
+    font-weight: v.$lightWeightFont;
+    content: attr(data-title);
+    background-color: v.$grayLight;
+    color: v.$black;
+    font-size: 1.4rem;
+    position: absolute;
+    padding: .2rem 1rem;
+    top: .3rem;
+    left: 6rem;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #5e5e5e;
+    opacity: 0;
+    border-radius: v.$borderRadius*2;
+    z-index: 99;
+    visibility: hidden;
+}
+
+[data-title] {
+    position: relative;
+}
 
 .container{
     max-width: 120rem;

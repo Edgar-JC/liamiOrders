@@ -22,46 +22,85 @@
             </div>
         </div>
     </header>
-    <div class="page-content">
-        <aside id="navigationBar" class="nav-bar-bg">
-            <nav class="nav-bar container">
-                <ul class="nav-bar__list">    
-                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-home"></i>Inicio</a></li>
-                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-shopping-cart"></i>Pedidos</a></li>
-                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-user"></i>Clientes</a></li>
-                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-list"></i>Productos</a></li>
-                    <li class="nav-bar__item"><a class="nav-bar__text" href="#"><i class="fas fa-receipt"></i>Egresos</a></li>
-                </ul>
-            </nav>
-            <div class="user-info container">
-                <a class="user-info__name" href="#"><i class="fas fa-user-circle"></i>Ashley Marin</a>
-                <a class="user-info__logout" href="#"><i class="fas fa-sign-out-alt"></i>Salir</a>
+    <aside id="navigationBar" class="aside-bg">
+        <button class="open-aside-btn">
+            <i class="icon-arrows-aside fa-solid fa-angles-right"></i>
+        </button>
+        <a href="#" class="aside-logo">
+            <img src="/src/img/logo-solo-piñata-sinfonfo.png" alt="Logo PNG">
+        </a>  
+        <nav class="nav-bar container">
+            <ul class="nav-bar__list"> 
+                <li class="nav-bar__list_item">
+                    <button data-title="Inicio">
+                        <i  class="nav-bar__icon fas fa-home"></i>
+                        <span class="nav-bar__text">Inicio</span>
+                    </button>
+                </li>
+                <li class="nav-bar__list_item">
+                    <button data-title="Pedidos">
+                        <i class="nav-bar__icon fas fa-shopping-cart"></i>
+                        <span class="nav-bar__text">Pedidos</span>
+                    </button>
+                </li>
+                <li class="nav-bar__list_item">
+                    <button data-title="Clientes">
+                        <i class="nav-bar__icon fas fa-user"></i>
+                        <span class="nav-bar__text">Clientes</span>
+                    </button>
+                </li>
+                <li class="nav-bar__list_item">
+                    <button data-title="Productos">
+                        <i class="nav-bar__icon fas fa-list"></i>
+                        <span class="nav-bar__text">Productos</span>
+                    </button>
+                </li>
+                <li class="nav-bar__list_item">
+                    <button data-title="Egresos">
+                        <i class="nav-bar__icon fas fa-receipt"></i>
+                        <span class="nav-bar__text">Egresos</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <div class="user-data container">
+            <div class="user-info">
+                <button  href="#">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <span class="user-info__text">Ashley</span>
             </div>
-        </aside>
+            <div class="user-logout">
+                <button  href="#">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+                <span class="user-logout__text">Cerrar Sesion</span>
+            </div>
+    </aside>
+    <div class="page-content">
         <main class="calendar-container container section">
             <h1 class="heading-calendar">Calendario de Entregas</h1>
             <div class="calendar">
-                <div class="calendar__actual-date">
-                    <div class="month-calendar">Abril 2022</div>
-                    <div class="actual-date">Miercoles 6, Abril, 2022</div>
+                <div class="calendar__current-date">
+                    <div class="heading-month-container"></div>
                     <i class="fa-solid fa-chevron-left prev-btn"></i>
                     <i class="fa-solid fa-chevron-right next-btn"></i>
                 </div>
                 <div class="calendar__main">
                     <div class="days-week">
+                        <p>Dom</p>
                         <p>Lun</p>
                         <p>Mar</p>
                         <p>Mie</p>
                         <p>Jue</p>
                         <p>Vie</p>
                         <p>Sab</p>
-                        <p>Dom</p>
                     </div>
                     <div class="days-month"></div>
                 </div>
             </div>
         </main>
     </div>
-    <script src="src/js/script.js"></script>
+    <script src="src/js/main.js" type="module"></script>
 </body>
 </html>

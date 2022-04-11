@@ -1,15 +1,50 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
-.user-info{
+.user-data{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2.5rem;
-    a{
+    @include m.tabletMQ{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        
+    }
+    button{
+        display: block;
+        font-size: 4rem;
         color: v.$white;
         transition: v.$transition;
         &:hover{
-            color: v.$magenta;
+            color: v.$lavenderPurple;
+        }
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        @include m.tabletMQ {
+            display: block;
+        }
+        &__text{
+            color: v.$white;
+            font-weight: v.$semiBoldWeightFont;
+        }
+    }
+
+    .user-logout {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        @include m.tabletMQ {
+            display: none;
+        }
+        &__text{
+            color: v.$white;
+            font-weight: v.$semiBoldWeightFont;
         }
     }
 }

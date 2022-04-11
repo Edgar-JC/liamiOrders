@@ -3,14 +3,18 @@
 
 .calendar-container {
     .heading-calendar{
-        font-weight: v.$boldWeightFont;
+        font-weight: v.$semiBoldWeightFont;
         text-align: center;
         
     }
 }
 
 .calendar{
-    &__actual-date{
+    
+    min-width: 32rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    &__current-date{
         color: v.$white;
         padding: 2rem;
         background-color: v.$lavenderPurple;
@@ -19,19 +23,28 @@
         .month-calendar{
             font-size: 2.5rem;
             padding-bottom: 1rem;
+            margin: 0;
+            font-weight: v.$regularWeightFont;
+        }
+        .full-current-date{
+            color: v.$white;
+            transition: color v.$transition;
+            &:hover{
+                color: v.$purpleDark;
+            }
         }
         .prev-btn{
             position: absolute;
-            top: calc(50% - 1.25rem);
+            top: calc(50% - 1.5rem);
             left: 2rem;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             cursor: pointer;
         }
         .next-btn{
             position: absolute;
-            top: calc(50% - 1.25rem);
+            top: calc(50% - 1.5rem);
             right: 2rem;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             cursor: pointer;
         }
     }
@@ -43,22 +56,32 @@
             @include m.grid(7, 0);
             text-align: center;
         }
-        .days-month {
-            margin-top: 1rem;
-            @include m.grid(7, 0);
-            .day{
-                display: flex;
-                height: 5rem;
-                align-items: center;
-                justify-content: center;
-                &:hover{
-                    cursor: pointer;
-                    border: 2px solid v.$lavenderPurple;
-                }
-            }
+    }
+}
+
+.days-month {
+    margin-top: 1rem;
+    @include m.grid(7, 0);
+    .day{
+        display: flex;
+        height: 5rem;
+        align-items: center;
+        justify-content: center;
+        font-weight: v.$semiBoldWeightFont;
+        &:hover{
+            cursor: pointer;
+            border: 2px solid v.$lavenderPurple;
         }
     }
-    p {
-        margin: 0;
+    .today{
+        background-color: v.$lavenderPurple;
+        &:hover{
+            border: 2px solid v.$white;
+        }
     }
+}
+
+.day.other-month-day {
+    color: rgba(255, 255, 255, .45);
+    font-weight: v.$regularWeightFont;
 }

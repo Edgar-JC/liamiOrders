@@ -6,11 +6,14 @@
 }
 
 .header{
+    @include m.tabletMQ{
+        display: none;
+    }
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
-    &
+    padding: 1rem 3rem;
     &__logo{
         flex: 0 0 25rem;
         @include m.tabletMQ {
@@ -19,9 +22,6 @@
     }
     &__hamburger-btn{
         cursor: pointer;
-        @include m.tabletMQ{
-             display: none;
-        }
         .line{
             display: block;
             background-color: v.$white;

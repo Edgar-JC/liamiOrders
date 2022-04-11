@@ -1,48 +1,107 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.nav-bar-bg{
+.aside-bg{
+    position: relative;
+    padding-top: v.$spacing;
+    padding-bottom: v.$spacing;
+    z-index: 9;
     position: absolute;
     background-color: v.$purpleDark;
-    height: 85vh;
+    height: 100vh;
     width: 100%;
-    right: -100%;
+    left: -100%;
     transition: v.$transition;
+
     @include m.tabletMQ {
+        top: 0;
         left: 0;
-        width: 20vw;
-        height: calc(100vh - 104.22px);
-        background-color: v.$grayDark;
-        position: static;
+        width: 10rem;
+        background-color: v.$purpleDark;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .open-aside-btn{
+        display: none;
+        font-size: 2rem;
+        position: absolute;
+        color: v.$white;
+        right: -2.3rem;
+        top: 2rem;
+        background-color: v.$purpleDark;
+        border-radius: 0 v.$borderRadius * 4 v.$borderRadius * 4 0;
+        padding: .2rem .3rem;
+        @include m.tabletMQ{
+            display: block;
+        }
+        .icon-arrows-aside {
+            &.active{
+                transform: rotate(180deg);
+            }
+        }
+    }
+    
+    .aside-logo {
+        display: none;
+        
+        @include m.tabletMQ{
+            margin: 0 auto;
+            width: 7rem;
+            display: block;
+        }
+        
     }
 
-    &.active{
-        right: 0;
+    &.active-mobile{
+        left: 0;
         overflow: hidden;
+    }
+    &.active-desktop{
+        width: 25rem;
     }
 }
 .nav-bar{
-    padding-top: 3rem;
     &__list{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        &_item {
+            height: 15vh;
+            @include m.tabletMQ{
+                height: 10vh;
+            }
+            button{
+                display: flex;
+                gap: 2rem;
+            }
+        }
     }
-    &__item {
-        height: 14vh;
-    }
+    
     &__text {
+        font-size: 2rem;
         color: v.$white;
         display: flex;
         align-items: center;
         gap: 1.5rem;
         transition: v.$transition;
+        @include m.tabletMQ{
+            display: none;
+        }
         &:hover{
             color: v.$magenta;
         }
-        i{
-            font-size: 2.5rem;
-        }
     }
+    &__icon {
+        font-size: 2.5rem;
+        color: v.$white;
+        transition: color v.$transition;
+        &:hover{
+            color: v.$magenta;
+        }
+        
+    }    
+
 }
