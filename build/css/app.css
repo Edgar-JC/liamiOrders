@@ -566,8 +566,8 @@ template {
 
 .aside-bg {
   position: relative;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   z-index: 9;
   position: absolute;
   background-color: #2E005A;
@@ -590,21 +590,22 @@ template {
 }
 .aside-bg .open-aside-btn {
   display: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   position: absolute;
-  color: #FFFFFF;
-  right: -2.3rem;
-  top: 2rem;
-  background-color: #2E005A;
-  border-radius: 0 8px 8px 0;
-  padding: 0.2rem 0.3rem;
+  color: #2E005A;
+  right: -3.5rem;
+  top: calc(50% - 1.25rem);
+  transition: ease 0.3s;
+}
+.aside-bg .open-aside-btn:hover {
+  transform: translateX(1rem);
 }
 @media (min-width: 1024px) {
   .aside-bg .open-aside-btn {
     display: block;
   }
 }
-.aside-bg .open-aside-btn .icon-arrows-aside.active {
+.aside-bg .open-aside-btn .icon-chevron-aside.active {
   transform: rotate(180deg);
 }
 .aside-bg .aside-logo {
@@ -637,9 +638,11 @@ template {
 @media (min-width: 1024px) {
   .nav-bar__list_item {
     height: 10vh;
+    display: flex;
+    align-items: center;
   }
 }
-.nav-bar__list_item button {
+.nav-bar__list_item button.aside-active {
   display: flex;
   gap: 2rem;
 }
@@ -649,15 +652,20 @@ template {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s linear;
 }
 @media (min-width: 1024px) {
   .nav-bar__text {
-    display: none;
+    width: 0;
+    opacity: 0;
   }
 }
 .nav-bar__text:hover {
   color: #F512F1;
+}
+.nav-bar__text.aside-active {
+  width: auto;
+  opacity: 1;
 }
 .nav-bar__icon {
   font-size: 2.5rem;

@@ -23,14 +23,14 @@ function activateHamburgerButton() {
 
 function openAsideBar() {
     const openAsideBtn = d.querySelector(".open-aside-btn");
-    const arrowsIcon = d.querySelector(".icon-arrows-aside");
+    const chevronIcon = d.querySelector(".icon-chevron-aside");
     const test = d.querySelectorAll(".nav-bar__text");//<------- delete this line
     //TRY TO FIND THE WAY TO SHOW THE TEXT OF EACH LI, BUT REMOVE THEM WHEN ASIDE IS CLOSED
     openAsideBtn.addEventListener("click",e=>{
         if(e.target === openAsideBtn || e.target.parentNode.contains(openAsideBtn)){
             navigationBar.classList.toggle("active-desktop")
-            arrowsIcon.classList.toggle("active");
-            test.forEach(item =>{item.style.display = "block"}) //<------ Delete this line
+            chevronIcon.classList.toggle("active");
+            test.forEach(item =>{item.classList.toggle("aside-active")})
         }
     })
 }
