@@ -2,59 +2,15 @@
 @use 'base/mixins' as m;
 
 .aside-bg{
-    position: relative;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
     z-index: 9;
     position: absolute;
     background-color: v.$purpleDark;
-    height: 100vh;
+    height: calc(100vh - 10rem);
     width: 100%;
     left: -100%;
-    transition: v.$transition;
-
-    @include m.tabletMQ {
-        top: 0;
-        left: 0;
-        width: 10rem;
-        background-color: v.$purpleDark;
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .open-aside-btn{
-        display: none;
-        font-size: 2.5rem;
-        position: absolute;
-        color: v.$purpleDark;
-        right: -3.5rem;
-        top: calc(50% - 1.25rem);
-        transition: ease .3s;
-        &:hover {
-            transform: translateX(1rem);
-        }
-        @include m.tabletMQ{
-            display: block;
-        }
-        .icon-chevron-aside {
-            &.active{
-                transform: rotate(180deg);
-            }
-        }
-    }
-    
-    .aside-logo {
-        display: none;
-        
-        @include m.tabletMQ{
-            margin: 0 auto;
-            width: 7rem;
-            display: block;
-        }
-        
-    }
-
+    transition: all 0.5s ease;
     &.active-mobile{
         left: 0;
         overflow: hidden;
@@ -62,56 +18,154 @@
     &.active-desktop{
         width: 25rem;
     }
+    
+    @include m.tabletMQ {
+        justify-content: space-between;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        width: 8rem;
+        background-color: v.$purpleDark;
+        position: fixed;
+        padding: 2.5rem 0;
+    }
+
+    .aside-header{
+        display: none;
+        
+
+        @include m.tabletMQ{
+        display: block;
+        padding: 0 1rem;
+        }
+
+        .open-aside-btn{
+            display: none;
+            cursor: pointer;
+            font-size: 2.5rem;
+            color: v.$white;
+            transition: ease .3s;
+            
+            @include m.tabletMQ{
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            }
+            .aside-bg.active-desktop &{
+                left: 80%;
+            }
+        }
+        
+        .aside-logo {
+            opacity: 0;
+            width: 0;
+            &.aside-active{
+                @include m.tabletMQ{
+                    display: block;
+                    width: 18rem;
+                    opacity: 1;
+                    transition: all 0.5s ease;
+                }
+    
+            }
+            
+        }
+    }
+
+
 }
 .nav-bar{
+    margin-bottom: 4rem;
+    @include m.tabletMQ{
+        margin-bottom: 0;
+    }
     &__list{
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        @include m.tabletMQ{
+            align-items: flex-start;
+        }
         &_item {
             height: 15vh;
+            display: flex;
             @include m.tabletMQ{
-                height: 10vh;
-                display: flex;
+                height: 7vh;
                 align-items: center;
+                width: 100%;
             }
-            button{
+            
+            &:hover .tooltip{
+                opacity: .8;
+                top: 50%;
+                transition: all 0.5s ease;
+            }
+            .tooltip{
+                display: none;
+                @include m.tabletMQ{    
+                    position: absolute;
+                    left: 6rem;
+                    top: 0;
+                    border-radius: .6rem;
+                    padding: .5rem 1rem;
+                    background-color: v.$grayLight;
+                    text-align: center;
+                    opacity: 0;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                    box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.2);
+                    transition: 0s;
+                }
                 &.aside-active{
-                    display: flex;
-                    gap: 2rem;
+                    display: none;
                 }
             }
         }
     }
     
-    &__text {
-        font-size: 2rem;
-        color: v.$white;
+    .link-btn{
         display: flex;
         align-items: center;
-        gap: 1.5rem;
-        transition: all .3s linear;
+        gap: 2rem;
         @include m.tabletMQ{
-            width: 0;
-            opacity: 0;
+            gap: 0;
+            width: 100%;
         }
-        &:hover{
-            color: v.$magenta;
+
+
+        &__text {
+            cursor: pointer;
+            font-size: 2rem;
+            color: v.$white;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all .5s ease;
+            @include m.tabletMQ{
+                pointer-events: none;
+                width: 0;
+                opacity: 0;
+            }
+            &.aside-active {
+                width: auto;
+                opacity: 1;
+                pointer-events: all;
+            }
         }
-        &.aside-active {
-            width: auto;
-            opacity: 1;
-        }
+        &__icon {
+            cursor: pointer;
+            font-size: 2rem;
+            color: v.$white;
+            transition: color v.$transition;
+            &:hover{
+                color: v.$magenta;
+            }
+            
+        }    
     }
-    &__icon {
-        font-size: 2.5rem;
-        color: v.$white;
-        transition: color v.$transition;
-        &:hover{
-            color: v.$magenta;
-        }
-        
-    }    
+    
 
 }
+

@@ -23,43 +23,50 @@
         </div>
     </header>
     <aside id="navigationBar" class="aside-bg">
-        <button class="open-aside-btn">
-            <i class="icon-chevron-aside fa-solid fa-circle-chevron-right"></i>
-        </button>
-        <a href="#" class="aside-logo">
-            <img src="/src/img/logo-solo-piñata-sinfonfo.png" alt="Logo PNG">
-        </a>  
+        <header class="aside-header">
+            <button class="open-aside-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="#" class="aside-logo">
+                <img src="/src/img/logoWebLiami.png" alt="Logo PNG">
+            </a>  
+        </header>
         <nav class="nav-bar container">
             <ul class="nav-bar__list"> 
                 <li class="nav-bar__list_item">
-                    <button data-title="Inicio">
-                        <i  class="nav-bar__icon fas fa-home"></i>
-                        <span class="nav-bar__text">Inicio</span>
+                    <button class="link-btn" >
+                        <i class="link-btn__icon fas fa-home"></i>
+                        <span class="link-btn__text">Inicio</span>
                     </button>
+                    <span class="tooltip">Inicio</span>
                 </li>
                 <li class="nav-bar__list_item">
-                    <button data-title="Pedidos">
-                        <i class="nav-bar__icon fas fa-shopping-cart"></i>
-                        <span class="nav-bar__text">Pedidos</span>
+                    <button class="link-btn">
+                        <i class="link-btn__icon fas fa-shopping-cart"></i>
+                        <span class="link-btn__text">Pedidos</span>
                     </button>
+                    <span class="tooltip">Pedidos</span>
                 </li>
                 <li class="nav-bar__list_item">
-                    <button data-title="Clientes">
-                        <i class="nav-bar__icon fas fa-user"></i>
-                        <span class="nav-bar__text">Clientes</span>
+                    <button class="link-btn">
+                        <i class="link-btn__icon fas fa-user"></i>
+                        <span class="link-btn__text">Clientes</span>
                     </button>
+                    <span class="tooltip">Clientes</span>
                 </li>
                 <li class="nav-bar__list_item">
-                    <button data-title="Productos">
-                        <i class="nav-bar__icon fas fa-list"></i>
-                        <span class="nav-bar__text">Productos</span>
+                    <button class="link-btn">
+                        <i class="link-btn__icon fas fa-list"></i>
+                        <span class="link-btn__text">Productos</span>
                     </button>
+                    <span class="tooltip">Productos</span>
                 </li>
                 <li class="nav-bar__list_item">
-                    <button data-title="Egresos">
-                        <i class="nav-bar__icon fas fa-receipt"></i>
-                        <span class="nav-bar__text">Egresos</span>
+                    <button class="link-btn">
+                        <i class="link-btn__icon fas fa-receipt"></i>
+                        <span class="link-btn__text">Egresos</span>
                     </button>
+                    <span class="tooltip">Egresos</span>
                 </li>
             </ul>
         </nav>
