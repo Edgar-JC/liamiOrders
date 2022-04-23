@@ -3,6 +3,10 @@
 
 .header-bg{
     background-color: v.$purpleDark;
+    height: 8.5rem;
+    @include m.tabletMQ{
+        display: none;
+    }
 }
 
 .header{
@@ -15,7 +19,7 @@
     justify-content: space-between;
     padding: 1rem 3rem;
     &__logo{
-        flex: 0 0 25rem;
+        flex: 0 0 19rem;
         @include m.tabletMQ {
             margin: 0 auto;
         }
@@ -25,21 +29,21 @@
         .line{
             display: block;
             background-color: v.$white;
-            height: .5rem;
-            width: 3.5rem;
-            margin-bottom: .6rem;
+            height: .3rem;
+            width: 2.5rem;
+            margin-bottom: .4rem;
             border-radius: v.$borderRadius;
             transition: v.$transition;  
         }
     }
 }
 
-.line1.active{
-    transform: rotate(45deg) translate(7.5px, 7.5px);
+.line1.active-mobile{
+    transform: rotate(45deg) translate(5px, 5px);
 }
-.line2.active{
+.line2.active-mobile{
     opacity: 0;
 }
-.line3.active{
-    transform: rotate(-45deg) translate(7.5px, -7.5px);
+.line3.active-mobile{
+    transform: rotate(-45deg) translate(5px, -5px);
 }

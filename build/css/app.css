@@ -403,6 +403,12 @@ template {
 
 .header-bg {
   background-color: #2E005A;
+  height: 8.5rem;
+}
+@media (min-width: 1024px) {
+  .header-bg {
+    display: none;
+  }
 }
 
 .header {
@@ -418,7 +424,7 @@ template {
   }
 }
 .header__logo {
-  flex: 0 0 25rem;
+  flex: 0 0 19rem;
 }
 @media (min-width: 1024px) {
   .header__logo {
@@ -431,23 +437,23 @@ template {
 .header__hamburger-btn .line {
   display: block;
   background-color: #FFFFFF;
-  height: 0.5rem;
-  width: 3.5rem;
-  margin-bottom: 0.6rem;
+  height: 0.3rem;
+  width: 2.5rem;
+  margin-bottom: 0.4rem;
   border-radius: 2px;
   transition: 0.3s ease-in-out;
 }
 
-.line1.active {
-  transform: rotate(45deg) translate(7.5px, 7.5px);
+.line1.active-mobile {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-.line2.active {
+.line2.active-mobile {
   opacity: 0;
 }
 
-.line3.active {
-  transform: rotate(-45deg) translate(7.5px, -7.5px);
+.line3.active-mobile {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .calendar-container .heading-calendar {
@@ -541,7 +547,7 @@ template {
   z-index: 9;
   position: absolute;
   background-color: #2E005A;
-  height: calc(100vh - 10rem);
+  height: calc(100vh - 8.5rem);
   width: 100%;
   left: -100%;
   transition: all 0.5s ease;
@@ -570,8 +576,10 @@ template {
 }
 @media (min-width: 1024px) {
   .aside-bg .aside-header {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0 1rem;
+    height: 6rem;
   }
 }
 .aside-bg .aside-header .open-aside-btn {
@@ -590,20 +598,9 @@ template {
     z-index: 999;
   }
 }
-.aside-bg.active-desktop .aside-bg .aside-header .open-aside-btn {
-  left: 80%;
-}
-.aside-bg .aside-header .aside-logo {
+.aside-bg .aside-header .aside-logo img {
   opacity: 0;
-  width: 0;
-}
-@media (min-width: 1024px) {
-  .aside-bg .aside-header .aside-logo.aside-active {
-    display: block;
-    width: 18rem;
-    opacity: 1;
-    transition: all 0.5s ease;
-  }
+  height: 0;
 }
 
 .nav-bar {
@@ -619,19 +616,13 @@ template {
   flex-direction: column;
   align-items: center;
 }
-@media (min-width: 1024px) {
-  .nav-bar__list {
-    align-items: flex-start;
-  }
-}
 .nav-bar__list_item {
-  height: 15vh;
+  height: 14vh;
   display: flex;
 }
 @media (min-width: 1024px) {
   .nav-bar__list_item {
     height: 7vh;
-    align-items: center;
     width: 100%;
   }
 }
@@ -641,10 +632,13 @@ template {
   transition: all 0.5s ease;
 }
 .nav-bar__list_item .tooltip {
-  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }
 @media (min-width: 1024px) {
   .nav-bar__list_item .tooltip {
+    visibility: visible;
     position: absolute;
     left: 6rem;
     top: 0;
@@ -659,9 +653,6 @@ template {
     transition: 0s;
   }
 }
-.nav-bar__list_item .tooltip.aside-active {
-  display: none;
-}
 .nav-bar .link-btn {
   display: flex;
   align-items: center;
@@ -669,7 +660,7 @@ template {
 }
 @media (min-width: 1024px) {
   .nav-bar .link-btn {
-    gap: 0;
+    margin-left: 2rem;
     width: 100%;
   }
 }
@@ -689,19 +680,34 @@ template {
     opacity: 0;
   }
 }
-.nav-bar .link-btn__text.aside-active {
-  width: auto;
-  opacity: 1;
-  pointer-events: all;
-}
 .nav-bar .link-btn__icon {
   cursor: pointer;
   font-size: 2rem;
   color: #FFFFFF;
   transition: color 0.3s ease-in-out;
 }
-.nav-bar .link-btn__icon:hover {
-  color: #F512F1;
+
+.aside-bg.active-desktop .open-aside-btn {
+  left: 80%;
+}
+
+.aside-bg.active-desktop .aside-logo img {
+  display: block;
+  height: 6rem;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.aside-bg.active-desktop .link-btn__text {
+  width: auto;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.aside-bg.active-desktop .tooltip {
+  visibility: hidden;
+  width: auto;
+  height: auto;
 }
 
 .user-data {
