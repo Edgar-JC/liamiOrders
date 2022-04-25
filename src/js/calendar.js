@@ -33,11 +33,15 @@ function createDays(month, year) {
    
 
     //display in header of calendar the month user is seeing
-    const monthInCalendar = d.createElement("h3");
-    monthInCalendar.textContent = `${months[month]} ${year}`;
-    monthInCalendar.classList.add("month-calendar");
-    headingMonthContainer.appendChild(monthInCalendar);
-    
+    const monthInCalendar = d.createElement("input");
+    monthInCalendar.type = "month";
+    monthInCalendar.value = `${year}-${month <= 9 ? ""+0+(month+1) : month+1}`;
+    monthInCalendar.setAttribute("required", "")
+    monthInCalendar.classList.add("picker-calendar");
+    const monthName = d.createElement("h3")
+    monthName.textContent = monthInCalendar.value;
+    headingMonthContainer.append(monthInCalendar, monthName);
+    //TRY TO GET THE NAME OF THE MONTH INSTEAD OF GET NUMBER
 
     
     //creating days of previous month
@@ -70,7 +74,9 @@ function createDays(month, year) {
     }
     
 
-    
+    monthInCalendar.addEventListener("change",(e)=>{
+        console.log(monthInCalendar.value);
+    })
 
     
 }

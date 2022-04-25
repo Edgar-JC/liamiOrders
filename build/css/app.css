@@ -478,6 +478,23 @@ template {
   padding-bottom: 1rem;
   margin: 0;
   font-weight: 400;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+.calendar__current-date .picker-calendar {
+  color-scheme: dark;
+  border: none;
+  background-color: transparent;
+}
+.calendar__current-date .picker-calendar:focus {
+  outline: none;
+}
+.calendar__current-date .picker-calendar::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+.calendar__current-date .picker-calendar::-webkit-datetime-edit {
+  opacity: 0;
 }
 .calendar__current-date .full-current-date {
   color: #FFFFFF;
@@ -568,7 +585,7 @@ template {
     width: 8rem;
     background-color: #2E005A;
     position: fixed;
-    padding: 2.5rem 0;
+    padding: 2.5rem 1rem;
   }
 }
 .aside-bg .aside-header {
@@ -622,14 +639,13 @@ template {
 }
 @media (min-width: 1024px) {
   .nav-bar__list_item {
-    height: 7vh;
+    height: 6vh;
     width: 100%;
+    position: relative;
   }
 }
 .nav-bar__list_item:hover .tooltip {
   opacity: 0.8;
-  top: 50%;
-  transition: all 0.5s ease;
 }
 .nav-bar__list_item .tooltip {
   visibility: hidden;
@@ -638,34 +654,57 @@ template {
 }
 @media (min-width: 1024px) {
   .nav-bar__list_item .tooltip {
-    visibility: visible;
     position: absolute;
-    left: 6rem;
     top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 110%;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 2.5rem;
+    visibility: visible;
     border-radius: 0.6rem;
     padding: 0.5rem 1rem;
-    background-color: #E8E8E8;
+    background-color: #000000;
     text-align: center;
     opacity: 0;
-    transform: translateY(-50%);
     pointer-events: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: 0s;
+    transition: opacity 0.3s ease-in-out;
   }
 }
 .nav-bar .link-btn {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 @media (min-width: 1024px) {
   .nav-bar .link-btn {
-    margin-left: 2rem;
+    gap: 0;
     width: 100%;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 8rem auto;
+    border-radius: 4px;
+  }
+}
+@media (min-width: 1024px) {
+  .nav-bar .link-btn:hover {
+    background-color: #FFFFFF;
+  }
+  .nav-bar .link-btn:hover i {
+    color: #2E005A;
+  }
+  .nav-bar .link-btn:hover span {
+    color: #2E005A;
   }
 }
 .nav-bar .link-btn__text {
-  cursor: pointer;
   font-size: 2rem;
   color: #FFFFFF;
   display: flex;
@@ -677,14 +716,22 @@ template {
   .nav-bar .link-btn__text {
     pointer-events: none;
     width: 0;
+    height: 0;
     opacity: 0;
   }
 }
 .nav-bar .link-btn__icon {
-  cursor: pointer;
   font-size: 2rem;
   color: #FFFFFF;
-  transition: color 0.3s ease-in-out;
+}
+@media (min-width: 1024px) {
+  .nav-bar .link-btn__icon {
+    border-radius: 4px;
+    transition-property: color, background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    place-self: center;
+  }
 }
 
 .aside-bg.active-desktop .open-aside-btn {
@@ -695,13 +742,18 @@ template {
   display: block;
   height: 6rem;
   opacity: 1;
-  transition: all 0.5s ease;
+  transition: height 0.5s ease;
 }
 
 .aside-bg.active-desktop .link-btn__text {
+  height: auto;
   width: auto;
   opacity: 1;
   pointer-events: all;
+}
+
+.aside-bg.active-desktop .link-btn {
+  place-content: unset;
 }
 
 .aside-bg.active-desktop .tooltip {

@@ -27,7 +27,7 @@
         width: 8rem;
         background-color: v.$purpleDark;
         position: fixed;
-        padding: 2.5rem 0;
+        padding: 2.5rem 1rem;
     }
 
     .aside-header{
@@ -78,35 +78,42 @@
             height: 14vh;
             display: flex;
             @include m.tabletMQ{
-                height: 7vh;
+                height: 6vh;
                 width: 100%;
+                position: relative;
+
             }
             
             &:hover .tooltip{
                 opacity: .8;
-                top: 50%;
-                transition: all 0.5s ease;
             }
             .tooltip{
                 visibility: hidden;
                 width: 0;
                 height: 0;
                 @include m.tabletMQ{
-                    visibility: visible;   
                     position: absolute;
-                    left: 6rem;
                     top: 0;
+                    bottom: 0;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    left: 110%;
+                    color: v.$white;
+                    display: flex;
+                    align-items: center;
+                    width: auto;
+                    height: 2.5rem;
+                    visibility: visible;   
                     border-radius: .6rem;
                     padding: .5rem 1rem;
-                    background-color: v.$grayLight;
+                    background-color: v.$black;
                     text-align: center;
                     opacity: 0;
-                    transform: translateY(-50%);
                     pointer-events: none;
                     box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.2);
-                    transition: 0s;
+                    transition: opacity 0.3s ease-in-out;
                 }
-               
+                
             }
         }
     }
@@ -114,15 +121,31 @@
     .link-btn{
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 3rem;
+        cursor: pointer;
+        transition: background-color .3s ease-in-out;
         @include m.tabletMQ{
-            margin-left: 2rem;
+            gap: 0;
             width: 100%;
+            display: grid;
+            place-content: center;
+            grid-template-columns: 8rem auto;
+            border-radius: v.$borderRadius *2;
+        }
+        @include m.tabletMQ {
+            &:hover {
+                background-color: v.$white;
+                i{
+                    color: v.$purpleDark;
+                }
+                span {
+                    color: v.$purpleDark;
+                }
+            }
         }
         
 
         &__text {
-            cursor: pointer;
             font-size: 2rem;
             color: v.$white;
             display: flex;
@@ -132,17 +155,21 @@
             @include m.tabletMQ{
                 pointer-events: none;
                 width: 0;
+                height: 0;
                 opacity: 0;
             }
             
         }
         &__icon {
-            cursor: pointer;
             font-size: 2rem;
             color: v.$white;
-            transition: color v.$transition;
-            
-            
+            @include m.tabletMQ{
+                border-radius: v.$borderRadius*2;
+                transition-property: color, background-color;
+                transition-duration: .3s;
+                transition-timing-function: ease-in-out;
+                place-self: center;
+            }
         }    
     }
     
@@ -159,15 +186,27 @@
     display: block;
     height: 6rem;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: height 0.5s ease;
 }
 
 
 .aside-bg.active-desktop .link-btn__text {
+    height: auto;
     width: auto;
     opacity: 1;
     pointer-events: all;
 }
+
+.aside-bg.active-desktop .link-btn {
+    place-content: unset;
+}
+
+
+// .aside-bg.active-desktop .link-btn:hover{
+//     background-color: v.$white;
+    
+// }
+
 
 .aside-bg.active-desktop .tooltip{
     visibility: hidden;

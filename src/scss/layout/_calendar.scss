@@ -10,7 +10,6 @@
 }
 
 .calendar{
-    
     min-width: 32rem;
     max-width: 75rem;
     margin: 0 auto;
@@ -25,6 +24,25 @@
             padding-bottom: 1rem;
             margin: 0;
             font-weight: v.$regularWeightFont;
+            background-color: transparent;
+            border: none;
+            color: v.$white;
+
+        }
+        .picker-calendar{
+            color-scheme: dark;
+            border: none;
+            background-color: transparent;
+            &:focus{
+                outline: none;
+            }
+            &::-webkit-calendar-picker-indicator{
+                
+                cursor: pointer;
+            }
+            &::-webkit-datetime-edit {
+                opacity: 0;
+            }
         }
         .full-current-date{
             color: v.$white;
@@ -85,3 +103,4 @@
     color: rgba(255, 255, 255, .45);
     font-weight: v.$regularWeightFont;
 }
+
