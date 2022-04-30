@@ -1,17 +1,18 @@
 import {d,b} from './variables.js'
 
 export default function calendar (){
-    runEventListeners();
     createDays(counterMonths,counterYears);
     displayCurrentday();
 }
 
 const daysMonthContainer = d.querySelector(".days-month");
 const containerCurrentDate = d.querySelector(".calendar__current-date");
-const headingMonthContainer = d.querySelector(".heading-month-container")
+const containerHeaderCalendar = d.querySelector(".heading-month-container");
 const dateToday = new Date;
+const headingDateCalendar = d.querySelector(".date-calendar")
 const prevBtn = d.querySelector(".prev-btn");
 const nextBtn = d.querySelector(".next-btn");
+const pickerCalendar = d.querySelector("#inputCalendar");
 let counterMonths = dateToday.getMonth();
 let counterYears = dateToday.getFullYear();
 const daysOfWeek = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
@@ -19,9 +20,8 @@ const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto
 
 
 function createDays(month, year) {
-
+    containerHeaderCalendar.innerHTML = "";
     daysMonthContainer.innerHTML = "";
-    headingMonthContainer.innerHTML= "";
 
 
 
@@ -32,18 +32,25 @@ function createDays(month, year) {
     const numDaysNextMonth = 6 - indexLastDayOfCurrentMonth;
    
 
-    //display in header of calendar the month user is seeing
-    const monthInCalendar = d.createElement("input");
-    monthInCalendar.type = "month";
-    monthInCalendar.value = `${year}-${month <= 9 ? ""+0+(month+1) : month+1}`;
-    monthInCalendar.setAttribute("required", "")
-    monthInCalendar.classList.add("picker-calendar");
-    const monthName = d.createElement("h3")
-    monthName.textContent = monthInCalendar.value;
-    headingMonthContainer.append(monthInCalendar, monthName);
-    //TRY TO GET THE NAME OF THE MONTH INSTEAD OF GET NUMBER
+    headingDateCalendar.textContent = "test";
+// Create a function outside this function, to get month and year from counters, and at the finish run de main function to upload the numbers in counter variables
 
+//then create heading in this function and get outside the picker from the heading container
+
+   // dateDisplayCalendar.textContent = `${months[counterMonths]}${year}`;
+//   inputCalendar.value = `${year}-${month <= 8 ? ""+0+(month+1) : month+1}`;
+
+   
+
+    //listener to change date when user set a date in input calendar
+    // inputCalendar.addEventListener("change",()=>{
+    //     console.log(parseInt(inputCalendar.value.split("-")[0]));
+    //     counterMonths = parseInt(inputCalendar.value.split("-")[1]) - 1;
+    //     counterYears = parseInt(inputCalendar.value.split("-")[0]);
+    //     dateDisplayCalendar.textContent = `${months[month]}${year}`;
+    // })
     
+
     //creating days of previous month
     for (let i = indexFirstDayOfCurrentMonth; i > 0; i--) {
         const prevMonthDay = d.createElement("p");
@@ -73,47 +80,48 @@ function createDays(month, year) {
         daysMonthContainer.appendChild(nextMonthDay)
     }
     
-
-    monthInCalendar.addEventListener("change",(e)=>{
-        console.log(monthInCalendar.value);
-    })
-
+    
+    
     
 }
 
-function runEventListeners() {
-    prevBtn.addEventListener("click",()=>{
-        counterMonths = counterMonths -  1; 
-        if(counterMonths < 0){
-            counterMonths = 11;
-            counterYears = counterYears - 1;
-            createDays(counterMonths, counterYears);
-        } else {
-            createDays(counterMonths, counterYears);
-        }
-    })
+//events listeners
+
+pickerCalendar.addEventListener("change",(e)=>{
     
-    nextBtn.addEventListener("click",()=>{
-        counterMonths = counterMonths + 1; 
-        if(counterMonths > 11){
-            counterMonths = 0;
-            counterYears = counterYears + 1;
-            createDays(counterMonths, counterYears);
-        } else {
-            createDays(counterMonths, counterYears);
+})
 
-        }
-    })
 
-    containerCurrentDate.addEventListener("click",e=>{
-        if(e.target.classList.contains("full-current-date")){
-            counterMonths = dateToday.getMonth();
-            counterYears = dateToday.getFullYear(); 
-            createDays(counterMonths,counterYears);
-        }
-    })
+prevBtn.addEventListener("click",()=>{
+    counterMonths = counterMonths -  1; 
+    if(counterMonths < 0){
+        counterMonths = 11;
+        counterYears = counterYears - 1;
+        createDays(counterMonths, counterYears);
+    } else {
+        createDays(counterMonths, counterYears);
+    }
+})
 
-}
+nextBtn.addEventListener("click",()=>{
+    counterMonths = counterMonths + 1; 
+    if(counterMonths > 11){
+        counterMonths = 0;
+        counterYears = counterYears + 1;
+        createDays(counterMonths, counterYears);
+    } else {
+        createDays(counterMonths, counterYears);
+
+    }
+})
+
+containerCurrentDate.addEventListener("click",e=>{
+    if(e.target.classList.contains("full-current-date")){
+        counterMonths = dateToday.getMonth();
+        counterYears = dateToday.getFullYear(); 
+        createDays(counterMonths,counterYears);
+    }
+})
 
 function displayCurrentday() {
     const currentDate = d.createElement("a");

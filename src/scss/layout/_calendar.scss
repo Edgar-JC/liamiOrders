@@ -19,30 +19,30 @@
         background-color: v.$lavenderPurple;
         text-align: center;
         position: relative;
-        .month-calendar{
-            font-size: 2.5rem;
-            padding-bottom: 1rem;
-            margin: 0;
-            font-weight: v.$regularWeightFont;
-            background-color: transparent;
-            border: none;
-            color: v.$white;
+        .heading-month-container {
+            .date-calendar{
+                font-size: 2.5rem;
+                padding-bottom: 1rem;
+                margin: 0;
+                font-weight: v.$regularWeightFont;
+                color: v.$white;    
+            }
+            #inputCalendar{
+                color-scheme: dark;
+                border: none;
+                background-color: transparent;
+                &:focus{
+                    outline: none;
+                }
+                &::-webkit-calendar-picker-indicator{
+                    
+                    cursor: pointer;
+                }
+                &::-webkit-datetime-edit {
+                    opacity: 0;
+                }
+            }
 
-        }
-        .picker-calendar{
-            color-scheme: dark;
-            border: none;
-            background-color: transparent;
-            &:focus{
-                outline: none;
-            }
-            &::-webkit-calendar-picker-indicator{
-                
-                cursor: pointer;
-            }
-            &::-webkit-datetime-edit {
-                opacity: 0;
-            }
         }
         .full-current-date{
             color: v.$white;
