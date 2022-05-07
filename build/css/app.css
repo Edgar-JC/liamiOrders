@@ -473,27 +473,6 @@ template {
   text-align: center;
   position: relative;
 }
-.calendar__current-date .heading-month-container .date-calendar {
-  font-size: 2.5rem;
-  padding-bottom: 1rem;
-  margin: 0;
-  font-weight: 400;
-  color: #FFFFFF;
-}
-.calendar__current-date .heading-month-container #inputCalendar {
-  color-scheme: dark;
-  border: none;
-  background-color: transparent;
-}
-.calendar__current-date .heading-month-container #inputCalendar:focus {
-  outline: none;
-}
-.calendar__current-date .heading-month-container #inputCalendar::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-}
-.calendar__current-date .heading-month-container #inputCalendar::-webkit-datetime-edit {
-  opacity: 0;
-}
 .calendar__current-date .full-current-date {
   color: #FFFFFF;
   transition: color 0.3s ease-in-out;
@@ -554,6 +533,37 @@ template {
 .day.other-month-day {
   color: rgba(255, 255, 255, 0.45);
   font-weight: 400;
+}
+
+.header-month-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header-month-container .heading-container .date-calendar {
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+  margin: 0;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.header-month-container #pickerCalendar {
+  left: 40%;
+  position: absolute;
+  color-scheme: dark;
+  border: none;
+  background-color: transparent;
+}
+.header-month-container #pickerCalendar:focus {
+  outline: none;
+}
+.header-month-container #pickerCalendar::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+.header-month-container #pickerCalendar::-webkit-datetime-edit {
+  opacity: 0;
 }
 
 .aside-bg {
@@ -766,23 +776,6 @@ template {
   align-items: center;
   padding: 0 2.5rem;
 }
-@media (min-width: 1024px) {
-  .user-data {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
-}
-.user-data button {
-  display: block;
-  font-size: 4rem;
-  color: #FFFFFF;
-  transition: 0.3s ease-in-out;
-}
-.user-data button:hover {
-  color: #947DAD;
-}
 .user-data .user-info {
   display: flex;
   align-items: center;
@@ -797,6 +790,15 @@ template {
   color: #FFFFFF;
   font-weight: 600;
 }
+.user-data .user-info button {
+  display: block;
+  font-size: 4rem;
+  color: #FFFFFF;
+  transition: 0.3s ease-in-out;
+}
+.user-data .user-info button:hover {
+  color: #947DAD;
+}
 .user-data .user-logout {
   display: flex;
   align-items: center;
@@ -810,6 +812,24 @@ template {
 .user-data .user-logout__text {
   color: #FFFFFF;
   font-weight: 600;
+}
+.user-data .user-logout button {
+  display: block;
+  font-size: 4rem;
+  color: #FFFFFF;
+  transition: 0.3s ease-in-out;
+}
+@media (min-width: 1024px) {
+  .user-data .user-logout button {
+    font-size: 1.6rem;
+  }
+}
+.user-data .user-logout button:hover {
+  color: #947DAD;
+}
+
+.aside-bg.active-desktop .user-logout {
+  display: block;
 }
 
 @media (min-width: 1024px) {

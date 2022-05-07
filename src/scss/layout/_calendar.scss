@@ -19,31 +19,6 @@
         background-color: v.$lavenderPurple;
         text-align: center;
         position: relative;
-        .heading-month-container {
-            .date-calendar{
-                font-size: 2.5rem;
-                padding-bottom: 1rem;
-                margin: 0;
-                font-weight: v.$regularWeightFont;
-                color: v.$white;    
-            }
-            #inputCalendar{
-                color-scheme: dark;
-                border: none;
-                background-color: transparent;
-                &:focus{
-                    outline: none;
-                }
-                &::-webkit-calendar-picker-indicator{
-                    
-                    cursor: pointer;
-                }
-                &::-webkit-datetime-edit {
-                    opacity: 0;
-                }
-            }
-
-        }
         .full-current-date{
             color: v.$white;
             transition: color v.$transition;
@@ -104,3 +79,40 @@
     font-weight: v.$regularWeightFont;
 }
 
+
+.header-month-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .heading-container {
+        .date-calendar{
+            font-size: 2.5rem;
+            padding-bottom: 1rem;
+            margin: 0;
+            font-weight: v.$regularWeightFont;
+            color: v.$white;    
+        }
+    }
+    #pickerCalendar{
+        //set some styles to set position of picker closer to the date calendar
+        left: 40%;
+        position: absolute;
+        color-scheme: dark;
+        border: none;
+        background-color: transparent;
+        &:focus{
+            outline: none;
+        }
+        &::-webkit-calendar-picker-indicator{
+            
+            cursor: pointer;
+        }
+        &::-webkit-datetime-edit {
+            opacity: 0;
+        
+        }
+    }
+
+}

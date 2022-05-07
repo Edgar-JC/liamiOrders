@@ -3,16 +3,16 @@ import {d,b} from './variables.js'
 export default function calendar (){
     createDays(counterMonths,counterYears);
     displayCurrentday();
+    createHeadingCalendar(counterMonths,counterYears)
 }
 
 const daysMonthContainer = d.querySelector(".days-month");
 const containerCurrentDate = d.querySelector(".calendar__current-date");
-const containerHeaderCalendar = d.querySelector(".heading-month-container");
+const headingContainer = d.querySelector(".heading-container");
+const pickerCalendar = d.querySelector("#pickerCalendar")
 const dateToday = new Date;
-const headingDateCalendar = d.querySelector(".date-calendar")
 const prevBtn = d.querySelector(".prev-btn");
 const nextBtn = d.querySelector(".next-btn");
-const pickerCalendar = d.querySelector("#inputCalendar");
 let counterMonths = dateToday.getMonth();
 let counterYears = dateToday.getFullYear();
 const daysOfWeek = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
@@ -20,7 +20,6 @@ const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto
 
 
 function createDays(month, year) {
-    containerHeaderCalendar.innerHTML = "";
     daysMonthContainer.innerHTML = "";
 
 
@@ -32,14 +31,13 @@ function createDays(month, year) {
     const numDaysNextMonth = 6 - indexLastDayOfCurrentMonth;
    
 
-    headingDateCalendar.textContent = "test";
 // Create a function outside this function, to get month and year from counters, and at the finish run de main function to upload the numbers in counter variables
 
 //then create heading in this function and get outside the picker from the heading container
 
    // dateDisplayCalendar.textContent = `${months[counterMonths]}${year}`;
 //   inputCalendar.value = `${year}-${month <= 8 ? ""+0+(month+1) : month+1}`;
-
+    
    
 
     //listener to change date when user set a date in input calendar
@@ -85,43 +83,15 @@ function createDays(month, year) {
     
 }
 
-//events listeners
+function createHeadingCalendar(month, year) {
+    headingContainer.innerHTML = "";
 
-pickerCalendar.addEventListener("change",(e)=>{
+    const headingCurrentDateCalendar = d.createElement("h3");
+    headingCurrentDateCalendar.classList.add("date-calendar")
+    headingCurrentDateCalendar.textContent = `${months[month]} ${year}`;
+    headingContainer.append(headingCurrentDateCalendar)
     
-})
-
-
-prevBtn.addEventListener("click",()=>{
-    counterMonths = counterMonths -  1; 
-    if(counterMonths < 0){
-        counterMonths = 11;
-        counterYears = counterYears - 1;
-        createDays(counterMonths, counterYears);
-    } else {
-        createDays(counterMonths, counterYears);
-    }
-})
-
-nextBtn.addEventListener("click",()=>{
-    counterMonths = counterMonths + 1; 
-    if(counterMonths > 11){
-        counterMonths = 0;
-        counterYears = counterYears + 1;
-        createDays(counterMonths, counterYears);
-    } else {
-        createDays(counterMonths, counterYears);
-
-    }
-})
-
-containerCurrentDate.addEventListener("click",e=>{
-    if(e.target.classList.contains("full-current-date")){
-        counterMonths = dateToday.getMonth();
-        counterYears = dateToday.getFullYear(); 
-        createDays(counterMonths,counterYears);
-    }
-})
+}
 
 function displayCurrentday() {
     const currentDate = d.createElement("a");
@@ -130,6 +100,60 @@ function displayCurrentday() {
     currentDate.textContent = `${daysOfWeek[dateToday.getDay()]} ${dateToday.getDate()}, ${months[dateToday.getMonth()]}, ${dateToday.getFullYear()}`
     containerCurrentDate.appendChild(currentDate);
 }
+
+//events listeners
+
+pickerCalendar.addEventListener("change",()=>{
+    const monthPicker = parseInt(pickerCalendar.value.split("-")[1]);
+    const yearPicker = parseInt(pickerCalendar.value.split("-")[0]);
+    counterMonths = monthPicker - 1;
+    counterYears = yearPicker;
+
+    createDays(counterMonths,counterYears)
+    createHeadingCalendar(counterMonths,counterYears)
+})
+
+
+
+prevBtn.addEventListener("click",()=>{
+    counterMonths = counterMonths -  1; 
+    if(counterMonths < 0){
+        counterMonths = 11;
+        counterYears = counterYears - 1;
+        createDays(counterMonths, counterYears);
+        createHeadingCalendar(counterMonths,counterYears)
+    } else {
+        createDays(counterMonths, counterYears);
+        createHeadingCalendar(counterMonths,counterYears)
+    }
+    pickerCalendar.value = `${counterYears}-${counterMonths < 9 ? 0+""+(counterMonths + 1) : counterMonths + 1}`;
+})
+
+nextBtn.addEventListener("click",()=>{
+    counterMonths = counterMonths + 1; 
+    if(counterMonths > 11){
+        counterMonths = 0;
+        counterYears = counterYears + 1;
+        createDays(counterMonths, counterYears);
+        createHeadingCalendar(counterMonths,counterYears)
+    } else {
+        createDays(counterMonths, counterYears);
+        createHeadingCalendar(counterMonths,counterYears)
+
+    }
+    pickerCalendar.value = `${counterYears}-${counterMonths < 9 ? 0+""+(counterMonths + 1) : counterMonths + 1}`;
+
+})
+
+containerCurrentDate.addEventListener("click",e=>{
+    if(e.target.classList.contains("full-current-date")){
+        counterMonths = dateToday.getMonth();
+        counterYears = dateToday.getFullYear(); 
+        createDays(counterMonths,counterYears);
+        createHeadingCalendar(counterMonths,counterYears)
+    }
+})
+
 
 
 

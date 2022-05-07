@@ -7,20 +7,7 @@
     align-items: center;
     padding: 0 2.5rem;
     @include m.tabletMQ{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
         
-    }
-    button{
-        display: block;
-        font-size: 4rem;
-        color: v.$white;
-        transition: v.$transition;
-        &:hover{
-            color: v.$lavenderPurple;
-        }
     }
     .user-info {
         display: flex;
@@ -32,6 +19,15 @@
         &__text{
             color: v.$white;
             font-weight: v.$semiBoldWeightFont;
+        }
+        button{
+            display: block;
+            font-size: 4rem;
+            color: v.$white;
+            transition: v.$transition;
+            &:hover{
+                color: v.$lavenderPurple;
+            }
         }
     }
 
@@ -46,5 +42,21 @@
             color: v.$white;
             font-weight: v.$semiBoldWeightFont;
         }
+        button{
+            display: block;
+            font-size: 4rem;
+            color: v.$white;
+            transition: v.$transition;
+            @include m.tabletMQ{
+                font-size: 1.6rem;
+            }
+            &:hover{
+                color: v.$lavenderPurple;
+            }
+        }
     }
+}
+
+.aside-bg.active-desktop .user-logout {
+    display: block;
 }
