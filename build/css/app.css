@@ -594,7 +594,6 @@ template {
     background-color: #2E005A;
     position: fixed;
     padding: 2.5rem 1rem;
-    overflow-x: hidden;
   }
 }
 .aside-bg .aside-header {
@@ -667,7 +666,7 @@ template {
     bottom: 0;
     margin-top: auto;
     margin-bottom: auto;
-    left: 110%;
+    left: 125%;
     color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -771,33 +770,51 @@ template {
 }
 
 .user-data {
+  position: absolute;
+  top: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5rem;
 }
+@media (min-width: 1024px) {
+  .user-data {
+    padding: 0;
+    position: initial;
+    justify-content: center;
+  }
+}
 .user-data .user-info {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 1rem;
+  transition: outline 0.3s ease-in-out;
+  border-radius: 4px;
 }
-@media (min-width: 1024px) {
-  .user-data .user-info {
-    display: block;
-  }
+.user-data .user-info:hover {
+  outline: 1px solid #FFFFFF;
 }
 .user-data .user-info__text {
   color: #FFFFFF;
   font-weight: 600;
 }
-.user-data .user-info button {
-  display: block;
-  font-size: 4rem;
-  color: #FFFFFF;
-  transition: 0.3s ease-in-out;
+@media (min-width: 1024px) {
+  .user-data .user-info__text {
+    display: none;
+  }
 }
-.user-data .user-info button:hover {
-  color: #947DAD;
+.user-data .user-info__text span:last-of-type {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.user-data .user-info .user-image {
+  display: block;
+  padding: 0.5rem;
+  color: #FFFFFF;
+}
+.user-data .user-info .user-image i {
+  font-size: 2rem;
 }
 .user-data .user-logout {
   display: flex;
@@ -828,7 +845,7 @@ template {
   color: #947DAD;
 }
 
-.aside-bg.active-desktop .user-logout {
+.aside-bg.active-desktop .user-info__text {
   display: block;
 }
 

@@ -17,36 +17,21 @@ let counterMonths = dateToday.getMonth();
 let counterYears = dateToday.getFullYear();
 const daysOfWeek = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
 const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const userInfo = d.querySelector(".user-info");
+
 
 
 function createDays(month, year) {
     daysMonthContainer.innerHTML = "";
 
-
-
+    
+    
     const lastDayCurrentMonth = new Date(year, month + 1, 0).getDate();
     const lastDayPrevMonth = new Date(year, month, 0).getDate();
     const indexFirstDayOfCurrentMonth = new Date(year, month, 1).getDay();
     const indexLastDayOfCurrentMonth = new Date (year, month, lastDayCurrentMonth).getDay();
     const numDaysNextMonth = 6 - indexLastDayOfCurrentMonth;
-   
 
-// Create a function outside this function, to get month and year from counters, and at the finish run de main function to upload the numbers in counter variables
-
-//then create heading in this function and get outside the picker from the heading container
-
-   // dateDisplayCalendar.textContent = `${months[counterMonths]}${year}`;
-//   inputCalendar.value = `${year}-${month <= 8 ? ""+0+(month+1) : month+1}`;
-    
-   
-
-    //listener to change date when user set a date in input calendar
-    // inputCalendar.addEventListener("change",()=>{
-    //     console.log(parseInt(inputCalendar.value.split("-")[0]));
-    //     counterMonths = parseInt(inputCalendar.value.split("-")[1]) - 1;
-    //     counterYears = parseInt(inputCalendar.value.split("-")[0]);
-    //     dateDisplayCalendar.textContent = `${months[month]}${year}`;
-    // })
     
 
     //creating days of previous month
@@ -58,7 +43,7 @@ function createDays(month, year) {
         
     }
 
-
+    
     // creating days of current month
     for (let i = 1; i <= lastDayCurrentMonth; i++) {
         const day = d.createElement("p");
@@ -108,7 +93,7 @@ pickerCalendar.addEventListener("change",()=>{
     const yearPicker = parseInt(pickerCalendar.value.split("-")[0]);
     counterMonths = monthPicker - 1;
     counterYears = yearPicker;
-
+    
     createDays(counterMonths,counterYears)
     createHeadingCalendar(counterMonths,counterYears)
 })
@@ -139,7 +124,7 @@ nextBtn.addEventListener("click",()=>{
     } else {
         createDays(counterMonths, counterYears);
         createHeadingCalendar(counterMonths,counterYears)
-
+        
     }
     pickerCalendar.value = `${counterYears}-${counterMonths < 9 ? 0+""+(counterMonths + 1) : counterMonths + 1}`;
 
@@ -154,6 +139,11 @@ containerCurrentDate.addEventListener("click",e=>{
     }
 })
 
+userInfo.addEventListener("click",()=>{
+    // DISPLAY THE MENU FOR THE USER, IN THIS MENU THE USER WILL BE AVAIABLE TO DO SOMETHING LIKE THIS WEB 
+    //https://dribbble.com/shots/17511216-Sidebar-Navigation
+
+})
 
 
 
