@@ -14,6 +14,7 @@
         justify-content: center;
     }
     .user-info {
+        position: relative;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -25,6 +26,8 @@
         }
         
         &__text{
+            margin-left: 1rem;
+            text-align: left;
             color: v.$white;
             font-weight: v.$semiBoldWeightFont;
             @include m.tabletMQ{
@@ -35,7 +38,7 @@
                 font-weight: v.$regularWeightFont;
             }
         }
-        .user-image{
+        &__image{
             display: block;
             padding: .5rem;
             color: v.$white;
@@ -73,4 +76,74 @@
 
 .aside-bg.active-desktop .user-info__text {
     display: block;
+}
+
+.user-modal{
+    border: none;
+    padding: 1rem;
+    color: v.$white;
+    position: absolute;
+    bottom: 1rem;
+    left: 9rem;
+    background-color: v.$purpleDark;
+    border-radius: v.$borderRadius*2;
+}
+
+.header-user-modal{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    &__img{
+        width: 3rem;
+        min-height: 3rem;
+        display: grid;
+        place-items: center;
+        background-color: v.$lavenderPurple;
+        border-radius: v.$borderRadius*3;
+    }
+    &__text{
+        text-align: left;
+        .name{
+            font-size: 1.4rem;
+            font-weight: v.$semiBoldWeightFont;
+        }
+        .email{
+            font-size: 1.2rem;
+            font-weight: v.$lightWeightFont;
+            color: v.$grayLight;
+        }
+    }
+    .fa-xmark{
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
+}
+
+.list-nav-user-modal{
+    font-size: 1.4rem;
+    text-align: left;
+    .nav-link{
+        padding: .5rem 4rem;
+        position: relative;
+        border-radius: v.$borderRadius*2;
+        transition-property: background-color color;
+        transition-timing-function: ease-in-out;
+        transition-duration: .3s;
+        cursor: pointer;
+        i{
+            position: absolute;
+            left: 1rem;
+        }
+        &:hover{
+            background-color: v.$white;
+            color: v.$purpleDark;
+        }
+    }
 }

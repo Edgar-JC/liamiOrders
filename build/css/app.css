@@ -467,6 +467,7 @@ template {
   margin: 0 auto;
 }
 .calendar__current-date {
+  border-radius: 4px 4px 0 0;
   color: #FFFFFF;
   padding: 2rem;
   background-color: #947DAD;
@@ -498,6 +499,7 @@ template {
   color: #FFFFFF;
   padding: 2rem;
   background-color: #E0BBE4;
+  border-radius: 0 0 4px 4px;
 }
 .calendar__main .days-week {
   display: grid;
@@ -513,6 +515,7 @@ template {
   gap: 0;
 }
 .days-month .day {
+  border-radius: 4px;
   display: flex;
   height: 5rem;
   align-items: center;
@@ -785,6 +788,7 @@ template {
   }
 }
 .user-data .user-info {
+  position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -796,6 +800,8 @@ template {
   outline: 1px solid #FFFFFF;
 }
 .user-data .user-info__text {
+  margin-left: 1rem;
+  text-align: left;
   color: #FFFFFF;
   font-weight: 600;
 }
@@ -808,12 +814,12 @@ template {
   font-size: 1rem;
   font-weight: 400;
 }
-.user-data .user-info .user-image {
+.user-data .user-info__image {
   display: block;
   padding: 0.5rem;
   color: #FFFFFF;
 }
-.user-data .user-info .user-image i {
+.user-data .user-info__image i {
   font-size: 2rem;
 }
 .user-data .user-logout {
@@ -847,6 +853,76 @@ template {
 
 .aside-bg.active-desktop .user-info__text {
   display: block;
+}
+
+.user-modal {
+  border: none;
+  padding: 1rem;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 1rem;
+  left: 9rem;
+  background-color: #2E005A;
+  border-radius: 4px;
+}
+
+.header-user-modal {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.header-user-modal__img {
+  width: 3rem;
+  min-height: 3rem;
+  display: grid;
+  place-items: center;
+  background-color: #947DAD;
+  border-radius: 6px;
+}
+.header-user-modal__text {
+  text-align: left;
+}
+.header-user-modal__text .name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.header-user-modal__text .email {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #E8E8E8;
+}
+.header-user-modal .fa-xmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.list-nav-user-modal {
+  font-size: 1.4rem;
+  text-align: left;
+}
+.list-nav-user-modal .nav-link {
+  padding: 0.5rem 4rem;
+  position: relative;
+  border-radius: 4px;
+  transition-property: background-color color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.list-nav-user-modal .nav-link i {
+  position: absolute;
+  left: 1rem;
+}
+.list-nav-user-modal .nav-link:hover {
+  background-color: #FFFFFF;
+  color: #2E005A;
 }
 
 @media (min-width: 1024px) {

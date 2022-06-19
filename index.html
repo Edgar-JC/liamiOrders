@@ -72,7 +72,7 @@
         </nav>
         <div class="user-data container">
             <button class="user-info">
-                <div class="user-image"  href="#">
+                <div class="user-info__image"  href="#">
                     <i class="fa-solid fa-user-large"></i>
                 </div>
                 <div class="user-info__text">
@@ -80,12 +80,32 @@
                     <span>ashley_9914@outlook.com</span>
                 </div>
             </button>
-            <div class="user-logout">
-                <button  href="#">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                </button>
-                <span class="user-logout__text">Cerrar Sesion</span>
-            </div>
+        </div> 
+        <!--MODAL FOR USER BUTTON IN SIDE BAR-->
+        <dialog class="user-modal">
+            <header class="header-user-modal">
+                <div class="header-user-modal__img">
+                    <i class="fa-solid fa-user-large"></i>
+                </div>
+                <div class="header-user-modal__text">
+                    <p class="name">Ashley Marin</p>
+                    <p class="email">ashley_9914@outlook.com</p>
+                </div>
+                <i id="closeModalBtn" class="fa-solid fa-xmark"></i>
+            </header>
+            <nav>
+                <ul class="list-nav-user-modal">
+                    <li class="nav-link">
+                    <i class="fa-solid fa-gears"></i>
+                        Settings
+                    </li>
+                    <li class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Log Out
+                    </li>
+                </ul>
+            </nav>
+        </dialog>   
     </aside>
     <div class="page-content">
         <main class="calendar-container container section">
@@ -114,6 +134,7 @@
             </div>
         </main>
     </div>
+    
     <script src="src/js/main.js" type="module"></script>
 </body>
 </html>

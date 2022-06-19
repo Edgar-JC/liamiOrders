@@ -1,4 +1,4 @@
-export {d, b};
+export {d, body};
 
 const d = document;
-const b = d.querySelector("body");
+const body = d.querySelector("body");
